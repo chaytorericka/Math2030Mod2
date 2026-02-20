@@ -57,12 +57,11 @@ S(t) is the susceptible, I(t) is infected , R(t) is the recovered and E(t) is th
  	\begin{split}
 	\frac{dS(t)}{dt}=-{\gamma}\frac{S(t)I(t)}{N(t)}\\
 	\frac{dE(t)}{dt}={\gamma}\frac{S(t)I(t)}{N(t)}-\frac{S(t-\tau)I(t-\tau)}{N(t-\tau}\\
-	\frac{dI(t)}{dt} = \gamma\frac{S(t-\tau)I(t-\tau)}{N(t-\tau}-{\alpha}I(t)\\
+	\frac{dI(t)}{dt} = \gamma\frac{S(t-\tau)I(t-\tau)}{N(t-\tau)}-{\alpha}I(t)\\
 	\frac{dR(t)}{dt}=f{\alpha}I(t),
 	\end{split}
 \end{align}
-%go and add more oh what software graphing and any assumptions here after finnishing graphs for the results section remember include everything some needs to do to reporduce your work
- 
+Using Python version 3.13.7 with imported package numpy, scripy and matplotlib to display models that would display possible epidimic conditions inside the olympic games. The removal rate $\alpha $ was based of values using in simlar models from the Covid-19 pandemic with $\alpha = \frac{1}{6}$ \cite{ shapiro2021adaptive}. On averages althetes tend to start to arrive at the games 7-10 days before opening ceremonies and tend to leave shortly after their events finnish due to Covid-19 protocols still in place post the Tokyo 2020 Olympics. \cite 
 \section*{Results}
 -> due the the popularity of the sports participating in the games and the types of sports including more team sports in the summer olympics there is a large disparity in the sizes of the villages the summer village for Paris 2024 was approximently  14500 athletes in the village compared to the smaller number of the current althetes in the Milano Cortina largest of the three villages is only approxiemently 1500 athletes which is a significant difference in population. 
 
