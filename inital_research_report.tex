@@ -2,10 +2,9 @@
 \usepackage{geometry}                		
 \geometry{letterpaper}                   		
    	
-\usepackage{graphicx}				
-										
+\usepackage{graphicx}												
 \usepackage{amssymb}
-
+\usepackage{float}
 \usepackage{amsmath}
 
 
@@ -18,8 +17,7 @@
 \section*{Abstract}
 
 \section*{Introduction}
-
-With 2026 being the year of the Milano Cortina Winter Olympics many reoccurring social, economic and theoretical questions are asked. This year on February 5th, a press release was issues as many players on the Finnish women's ice hockey team having been infected with Norovirus or have been placed in isolation leading to the postponement of their first game of this Olympics versus team Canada \cite{salvian_2026_finlandcanada}. This theme continued later into the games when a member of the Switzerland women's ice hockey team also had contracted Norovirus and some additional teammates being but in isolation. The possibility of an epidemic event at the olympics has been heavily discussed over the course of the last decade spanning both summer and winter games; from the Vancouver 2010 with the threat of H1N1, Rio 2016 with Zika virus and with the Tokyo 2020 games and the Beijing 2022 games being impacted by the Covid-19 global pandemic. The threat of an epidemic event occurring due to the games has been likely, especially with regards of  increased travel to the olympics by supporters, athletes, staff increasing the risk of epidemic events in the region. One interesting aspects with respect to this increased risk is the dynamics inside the Olympic village. Due to the nature of the games it create a small area with the gathering on thousands of individuals from hundreds of countries living closely together all at the top level of health and athletic ability for their respective sports. Although they may have separate "country buildings" as displayed by the current on going Olympics. There is a magnitude of common spaces such as dinning halls. Not to mention the increasing number of inter-athlete interactions during completion and for other official events surrounding the games such as organized ceremonies, exhibitions and pin trading. It create a unique environment with the typical dynamics of epidemiological models don't consider. there are many different structure of epidemic models that all have reasonable and useful applications. Many being based of stochastic models. such as discrete time Markov chain (DTMC) model where variables for both time and state are discrete. There is also a similar model known as continuous time Markov chain (CTMC) model whereby time is continuous but state variables remain discrete. Or the base model stochastic differential equation (SDE) model where both variables are continuous. \cite{allen2008introduction}  For the SIS epidemic model with differentials that describe the model dynamics as:\\
+With 2026 being the year of the Milano Cortina Winter Olympics many reoccurring social, economic and theoretical questions are asked. This year on February 5th, a press release was issues as many players on the Finnish women's ice hockey team having been infected with Norovirus or have been placed in isolation leading to the postponement of their first game of this Olympics versus team Canada \cite{salvian_2026_finlandcanada}. This theme continued later into the games when a member of the Switzerland women's ice hockey team also had contracted Norovirus and some additional teammates being but in isolation. The possibility of an epidemic event at the Olympics has been heavily discussed over the course of the last decade spanning both summer and winter games; from the Vancouver 2010 with the threat of H1N1, Rio 2016 with Zika virus and with the Tokyo 2020 games and the Beijing 2022 games being impacted by the Covid-19 global pandemic. The threat of an epidemic event occurring due to the games has been likely, especially with regards of  increased travel to the Olympics by supporters, athletes, staff increasing the risk of epidemic events in the region. One interesting aspects with respect to this increased risk is the dynamics inside the Olympic village. Due to the nature of the games it create a small area with the gathering on thousands of individuals from hundreds of countries living closely together all at the top level of health and athletic ability for their respective sports. Although they may have separate "country buildings" as displayed by the current on going Olympics. There is a magnitude of common spaces such as dinning halls. Not to mention the increasing number of inter-athlete interactions during completion and for other official events surrounding the games such as organized ceremonies, exhibitions and pin trading. It create a unique environment with the typical dynamics of epidemiological models don't consider. there are many different structure of epidemic models that all have reasonable and useful applications. Many being based of stochastic models. such as discrete time Markov chain (DTMC) model where variables for both time and state are discrete. There is also a similar model known as continuous time Markov chain (CTMC) model whereby time is continuous but state variables remain discrete. Or the base model stochastic differential equation (SDE) model where both variables are continuous. \cite{allen2008introduction}  For the SIS epidemic model with differentials that describe the model dynamics as:\\
 \begin{align}
     \begin{split}
     \frac{dS}{dt}=-\frac{\beta}{N}SI-(b+\gamma)I\\
@@ -36,7 +34,7 @@ where $\beta > 0$ is the constant rate,$ \gamma > 0 $ is equal to the recovery r
 	\end{split}
 \end{align}
 
-where $\beta > 0, \gamma > 0, b >= 0 $ and N the total population satisfies $ N = S(t) + I(t)  + R(t) $ and also satisfies the initial conditions $ S(0) > 0, I(0)> 0, R(0) \geq 0$. This model is commonly used for childhood diseases such as chicken pox whereby after an Individual has been infected they then are immune \cite{allen2008introduction}. Therefore limiting the possibilities of the model within a controlled population such as the Olympic village. Along with the multitude of  protocols regarding disease including isolation policies recently displayed by the small Norovirus outbreak at the 2026 olympics the possibility of in individual or athletes coming into the games with in active infection would be low. Due to the added delay and exposed category it becomes a accurate model for this type of population and type of infectious disease a SEIR (Susceptible, Exposed, Infectious, Recovered) model which includes a latent delay constant  $\tau$ \cite{yan2006seir}, would be a suitable and simple model to base theoretical models on. The dynamics of this system are modelled by:
+where $\beta > 0, \gamma > 0, b >= 0 $ and N the total population satisfies $ N = S(t) + I(t)  + R(t) $ and also satisfies the initial conditions $ S(0) > 0, I(0)> 0, R(0) \geq 0$. This model is commonly used for childhood diseases such as chicken pox whereby after an Individual has been infected they then are immune \cite{allen2008introduction}. Therefore limiting the possibilities of the model within a controlled population such as the Olympic village. Along with the multitude of  protocols regarding disease including isolation policies recently displayed by the small Norovirus outbreak at the 2026 Olympics the possibility of in individual or athletes coming into the games with in active infection would be low. Due to the added delay and exposed category it becomes a accurate model for this type of population and type of infectious disease a SEIR (Susceptible, Exposed, Infectious, Recovered) model which includes a latent delay constant  $\tau$ \cite{yan2006seir}, would be a suitable and simple model to base theoretical models on. The dynamics of this system are modelled by:
 
 \begin{align}
 	\begin{split}
@@ -47,11 +45,11 @@ where $\beta > 0, \gamma > 0, b >= 0 $ and N the total population satisfies $ N 
 	\end{split}
 \end{align}
 
-S(t) is the susceptible, I(t) is infected , R(t) is the recovered and E(t) is the exposed the sum of these values are equal to N(t) the total population. $\mu$ is the death rate due to causes other than disease. $\gamma$ is the number of contacts multiplied by the probability of infection as a function of time, therefore is equal to the transmission rate of the modelled disease. $\alpha$ is the removal rate and $ b $ is the per capita birth rate with $ b > \mu $ $f$ is the probability $f(0\leq f\geq 1)$ that the individual recovers and acquires permanent immunity  and $\tau$ is the latent period.\cite{an2006seir} With the introduction of the latent period this becomes a great base model for the possibility of an epidemic at the olympic games.
+S(t) is the susceptible, I(t) is infected , R(t) is the recovered and E(t) is the exposed the sum of these values are equal to N(t) the total population. $\mu$ is the death rate due to causes other than disease. $\gamma$ is the number of contacts multiplied by the probability of infection as a function of time, therefore is equal to the transmission rate of the modelled disease. $\alpha$ is the removal rate and $ b $ is the per capita birth rate with $ b > \mu $ $f$ is the probability $f(0\leq f\geq 1)$ that the individual recovers and acquires permanent immunity  and $\tau$ is the latent period.\cite{an2006seir} With the introduction of the latent period this becomes a great base model for the possibility of an epidemic at the Olympic games.
 
  \section*{Methods}
  
- Moving Forward with the SEIR model with delay equation system (3). there is some immediate simplifications that can be made to the overall systems due to the nature of the population. The assumption can be made that the population over the two weeks of the games will be constant. This is then means it can be assumes the per capita birth rate would have to equal 0 as there is no individuals inside this population that will be having children and because the population is assumed to be constant so therefore $ b = 0 $ and due to this assumption and the parameters of the system  $ b > \mu $ then the per capita death rate must also be equal to 0 so $\mu =0$. This makes logical sense as a cohort like that of the population of the olympic games will be young to middle age individuals in peak health condition to support competing at the international stage. This then simplifies system (3) to a dynamical system modelled by:
+ Moving Forward with the SEIR model with delay equation system (3). there is some immediate simplifications that can be made to the overall systems due to the nature of the population. The assumption can be made that the population over the two weeks of the games will be constant. This is then means it can be assumes the per capita birth rate would have to equal 0 as there is no individuals inside this population that will be having children and because the population is assumed to be constant so therefore $ b = 0 $ and due to this assumption and the parameters of the system  $ b > \mu $ then the per capita death rate must also be equal to 0 so $\mu =0$. This makes logical sense as a cohort like that of the population of the Olympic games will be young to middle age individuals in peak health condition to support competing at the international stage. This then simplifies system (3) to a dynamical system modelled by:
  
 \begin{align}
  	\begin{split}
@@ -61,14 +59,73 @@ S(t) is the susceptible, I(t) is infected , R(t) is the recovered and E(t) is th
 	\frac{dR(t)}{dt}=f{\alpha}I(t),
 	\end{split}
 \end{align}
-Using Python with imported package numpy  and matplotlib to display models that would display possible epidemic conditions inside the olympic games. The removal rate $\alpha $ was based of values using in similar models from the Covid-19 pandemic with $\alpha = \frac{1}{6}$ \cite{ shapiro2021adaptive}. On averages athletes tend to start to arrive at the games 7-10 days before opening ceremonies and tend to leave shortly after their events finish due to Covid-19 protocols still in place post the Tokyo 2020 Olympics. Meaning the village can only have a largest possible time span of 30 day if the turnover to Paralympics is not included and as this would be a totally new population it is not included with the village time allowance. then using average incubation periods based on common averages of past epidemics  $\tau$ is set to 2.9 as the average delay \cite{cori2012estimating}. The transmission constant $\gamma$ can vary by disease and the value of the transmission rate is now a possible variable of interest to see what is the minimum possible value of $\gamma$ to cause a local epidemic in the olympic village for the summer and winter games and if this is a value within reason for a realistic disease that could be transmitted with the village under current conditions of the olympic village. 
+Using Python with imported package numpy and matplotlib to display models that would display possible epidemic conditions inside the Olympic games. The removal rate $\alpha $ was based of values using in similar models from the Covid-19 pandemic with $\alpha = \frac{1}{6}$ \cite{ shapiro2021adaptive}. On averages athletes tend to start to arrive at the games 7-10 days before opening ceremonies and tend to leave shortly after their events finish due to Covid-19 protocols still in place post the Tokyo 2020 Olympics. Meaning the village can only have a largest possible time span of 30 day if the turnover to Paralympics is not included and as this would be a totally new population it is not included with the village time allowance. then using average incubation periods based on common averages of past epidemics  $\tau$ is set to 2.9 as the average delay \cite{cori2012estimating}. The transmission constant $\gamma$ can vary by disease and the value of the transmission rate is now a possible variable of interest to see what is the minimum possible value of $\gamma$ to cause a local epidemic in the Olympic village for the summer and winter games and if this is a value within reason for a realistic disease that could be transmitted with the village under current conditions of the Olympic village. For all models, there is an assumption that only one infected individual is entering the village under any conditions.
 
 \section*{Results}
-due the the popularity of the sports participating in the games and the types of sports including more team sports in the summer olympics there is a large disparity in the sizes of the villages the summer village for Paris 2024 was approximently  14500 athletes in the village compared to the smaller number of the current athletes in the Milano Cortina largest of the three villages is only approxiemently 1500 athletes which is a significant difference in population. 
+
+Due to the popularity of the sports participating in the games and the types of sports including more team sports in the summer Olympics there is a large disparity in the sizes of the villages between the summer and winter games. The summer village for Paris 2024 was that of approximately 14500 athletes\cite{fenton_2024_take} compared to the smaller number athletes in the recently ended winter games in Milano Cortina. The althetes were split between multiple villages with the largest of the villages present at the games had only approximately 1500 athletes\cite{mcdermott_2026_inside}, which is a significant difference in population. This difference in population affects the effectiveness of the transmission rate as with a larger population is decreased. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Winter_games_minor_gamma.png}
+    \caption{Population of the winter Olympic village with lowest possible transmission constant, $\gamma$ to create possible epidemic type event with $\gamma = 0.9$ and population equal largest Milano Cortina athlete accommodations and creating epidemic peak near the end of the games cycle.}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Summer_games_minor_gamma.png}
+    \caption{Population of the Summer Olympic village with lowest possible transmission constant, $\gamma$ to create possible epidemic event with $\gamma = 1.5$ and population based on Paris 2024 Olympic village statistics. Creating epidemic peak near the end of the games cycle.}
+    \label{fig:placeholder}
+\end{figure}
+The figure 1 shows the display of the lowest possible $\gamma$ for which an epidemic event is possible with the winter Olympic village with population based of that of the the 2026 games. Figure 2 displays the same but with the lowest possible $\gamma$ for the larger summer games population based of the 2024 summer games. With $\gamma$ values at 0.9 and 1.5 respectively as the transmission constants. These constants need to be quantified in terms of real disease to do with the transmission constant must be converted to the basic reproduction number. By manipulation the following equation\cite{bjornstad2020seirs}
+\begin{align}
+    \begin{split}
+        \beta = \gamma{R_0}
+    \end{split}
+\end{align}
+the for the contact rate where here the $\beta =\gamma$ and $\gamma = \frac{1}{\alpha}$ within the current working model. Then using this equation to find $R_0$ the basic reproduction number
+\begin{align}
+    \begin{split}
+        R_0=\frac{\gamma}{6}
+    \end{split}
+\end{align}
+which then mean that $R_0 =0.15$ in figure 1 and $R_0= 0.25$ based on the theorem \cite{allen2008introduction}where that if: 
+\begin{align}
+    \begin{split}
+        if R_0 <0, then \lim_{t \to \infty} = 0 (disease-free)\\
+        if R_0 >0, then \lim_{t \to \infty}(S(t),I(t),R(t)), (epidemic-model)
+    \end{split}
+\end{align}
+Therefore as displayed through the above $R_0$ values both epidemics will then go toward disease free equilibrium. this is most clearly displayed in the figure 2. As the decrease of the Infectious population decreasing again returning to zero. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Winter_games mid_gamma.png}
+    \caption{The Winter Olympic village population with adjusted $\gamma$ to create a more ideal epidemic event with the infectious population being the highest during the peak of the Olympic games. With $\gamma =2.5$}
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{summer_games_mid_gamma.png}
+    \caption{The Summer Olympic village population with adjusted $\gamma$ to create a more ideal epidemic event with the infectious population being the highest with the peak during the middle of the games and with $\gamma = 3.8$}
+    \label{fig:placeholder}
+\end{figure}
+Figure 3 displays the a $\gamma$ value for which that displays an epidemic event occurring near the middle of the games in the winter games  by increasing $\gamma$ to 2.5. which then when applying the equation (6) to this value gives $R_0=0.42$. With this value is still less then 1 and displayed by figure 3 it is clear to see that the infectious population is decreasing back to zero which is to be expected by the the previously stated theorem (7). A similar pattern is displayed in figure 4 with the summer games with its $\gamma$ increased to 3.8 which then gives an $R_0=0.64$ by equation(6) which is also less then 1 and will see the infectious population returning to zero by the same theorem(7).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Winter_games_max_gamma.png}
+    \caption{The population of the winter games Olympic village with transmission constant a $\gamma=7$ adjusted to display a possible system solution where the basic reproduction constant is greater than 1.} 
+    \label{fig:placeholder}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{summer_games_max_gamma.png}
+    \caption{The population of the summer Olympic village with an increased transmission constant to $\gamma = 7$ such that the displayed system will have a solution where the basic reproduction constant is greater than 1}
+    \label{fig:placeholder}
+\end{figure}
+both figures 5 and 6 display a solution for both the winter and summer games where by equation (6) $R_0=1.17$ so that both figures show an epidemic disease model as displayed by the infectious population not returning to zero after the initial peak in the number of infectious individuals. this is supported by the theorem(7) where is $R_0>1$ creating an epidemic solution. It is important to note that this all occurs under the assumption where the Olympic village is a closed population with no interactions with anyone outside on the population where in reality this is simply not true as athletes and support staff are interacting with family, fans and other members of the general population when they are at competition if after they are finished competing where they are often exploring the host city coming in contact with many other individuals quickly increasing there contacts and increasing the transmission constant and the involved population this quickly increase the dynamics of the system and could be an area of further research as it help to display the true risk posed by the large congregation of athletes.
 
 \section*{Conclusion} 
-application to other international sporting events commonwealth games Pan American games juiour olympics and world cups, tourdaments and circuits. And possible non sporting applications to similar living conditions such as boarding school and university residences. 
-
+application to other international sporting events commonwealth games, Pan American games, Junior Olympics, world cups, tournaments and circuits. And possible non sporting applications to similar living conditions such as boarding school and university residences.
 \bibliography{mod2-References}
 \bibliographystyle{plain}
 
